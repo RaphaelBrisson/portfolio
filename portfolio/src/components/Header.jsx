@@ -1,40 +1,14 @@
-// import photo from '../assets/raphael.jpg';
-// function Header() {
-//   return (
-//     <header className="flex max-sm:flex-col items-center justify-center">
-//       <h1 className='block flex-1/2 columns-2'>
-//         <span className="font-extrabold text-6xl block">Raphaël Brisson</span>
-//         <span className="font-light text-3xl block">Développeur Front-End</span>
-//       </h1>
-//       <img className='flex-1/2 columns-2' src={photo} alt="Raphaël Brisson" />
-//     </header>
-//   );
-// }
-
-// export default Header;
-
+import React from 'react';
 import { Container } from "../components/Layout";
-import MenuIcon from './header/MenuIcon';
 
-import logo from '../assets/logo.svg';
 import photo from '../assets/raphael.jpg';
 
-import { motion, AnimatePresence, transform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 
-function Header() {
+const Header = React.forwardRef(({ theme }, ref) => {
   return (
-    <header className="flex h-svh relative" id="header">
-
-      {/* navbar */}
-      <Container className="fixed flex items-center justify-between w-full z-[100] mt-[25px]">
-        <a href="#header">
-          <img src={logo} alt="logo RB" className="w-[45px]" />
-        </a>
-        <MenuIcon className="mx-auto" />
-        <div className='w-[45px]'></div>
-      </Container>
-
+    <header className="flex h-svh relative" id="header" ref={ref} data-theme="dark">
 
       <div className="flex bg-black text-white w-1/2 relative">
 
@@ -88,6 +62,6 @@ function Header() {
       </div>
     </header>
   );
-}
+});
 
 export default Header;

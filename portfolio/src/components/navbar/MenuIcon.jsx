@@ -6,16 +6,11 @@ export default function MenuIcon({className = ""}) {
 
   return (
     <button
-      className={`${className}` + ' h-[55px] w-[55px] group'}
+      className={`${className}` + ' h-[55px] w-[55px] group isolate'}
       onClick={() => setOpen((v) => !v)}
       aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
     >
-      <svg
-        viewBox="0 0 100 100"
-        width="55"
-        height="55"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg viewBox="0 0 100 100" width="55" height="55" xmlns="http://www.w3.org/2000/svg">
         {/* Losange */}
         <polygon
           points="50,5 95,50 50,95 5,50"
@@ -26,9 +21,11 @@ export default function MenuIcon({className = ""}) {
         />
 
         {/* Animation */}
-        <AnimatePresence mode="wait">
-          {!open ? <BurgerLines key="burger" /> : <CrossLines key="cross" />}
-        </AnimatePresence>
+        <g>
+          <AnimatePresence mode="wait">
+            {!open ? <BurgerLines key="burger" /> : <CrossLines key="cross" />}
+          </AnimatePresence>
+        </g>
       </svg>
     </button>
   );
