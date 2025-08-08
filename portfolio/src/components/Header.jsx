@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Header = React.forwardRef(({ theme }, ref) => {
   return (
-    <header className="flex h-svh relative" id="header" ref={ref} data-theme="dark">
+    <header className="flex h-svh relative" id="header" ref={ref}>
 
       <div className="flex bg-black text-white w-1/2 relative">
 
@@ -32,7 +32,8 @@ const Header = React.forwardRef(({ theme }, ref) => {
         </Container>
 
         {/* Bottom: Down arrow */}
-        <a href="#introduction" className="flex justify-center absolute bottom-[25px] w-full left-0 group">
+        <div className="flex justify-center absolute bottom-[25px] left-0 w-full">
+          <a href="#introduction" className='group'>
 
           <svg
             viewBox="0 0 100 100"
@@ -48,13 +49,17 @@ const Header = React.forwardRef(({ theme }, ref) => {
               strokeWidth="5"
               className="transition duration-300 origin-center group-hover:rotate-[15deg] group-hover:stroke-accent"
             />
-            <g>
-              <line x1="38" y1="50" x2="50" y2="62" stroke="white" strokeWidth="7" strokeLinecap="round"></line>
-              <line x1="62" y1="50" x2="50" y2="62" stroke="white" strokeWidth="7" strokeLinecap="round"></line>
-            </g>
+            <motion.g
+              animate={{ translateY: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <line x1="38" y1="46" x2="50" y2="58" stroke="white" strokeWidth="7" strokeLinecap="round"></line>
+              <line x1="62" y1="46" x2="50" y2="58" stroke="white" strokeWidth="7" strokeLinecap="round"></line>
+            </motion.g>
 
           </svg>
         </a>
+        </div>
       </div>
       {/* Right side: Photo */}
       <div className="w-1/2 h-full">

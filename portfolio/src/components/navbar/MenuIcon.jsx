@@ -1,14 +1,12 @@
-import { useState } from "react";
-import { motion, AnimatePresence, transform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function MenuIcon({className = ""}) {
-  const [open, setOpen] = useState(false);
+export default function MenuIcon({className = "", isOpen, setIsOpen}) {
 
   return (
     <button
       className={`${className}` + ' h-[55px] w-[55px] group isolate'}
-      onClick={() => setOpen((v) => !v)}
-      aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+      onClick={() => setIsOpen(v => !v)}
+      aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
     >
       <svg viewBox="0 0 100 100" width="55" height="55" xmlns="http://www.w3.org/2000/svg">
         {/* Losange */}
@@ -23,7 +21,7 @@ export default function MenuIcon({className = ""}) {
         {/* Animation */}
         <g>
           <AnimatePresence mode="wait">
-            {!open ? <BurgerLines key="burger" /> : <CrossLines key="cross" />}
+            {!isOpen ? <BurgerLines key="burger" /> : <CrossLines key="cross" />}
           </AnimatePresence>
         </g>
       </svg>

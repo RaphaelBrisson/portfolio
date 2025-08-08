@@ -24,7 +24,7 @@ const Contact = () => {
         <section id="contact" className="pt-[150px] bg-white">
             <Container>
                 <Wrapper className="text-center">
-                    <h2 className="text-2xl font-bold mb-12">Me contacter</h2>
+                    <h2 className="text-[3rem] font-bold mb-20">Me contacter</h2>
                     <div className="flex flex-col gap-4">
                         {phone && (
                             <p>
