@@ -1,4 +1,4 @@
-export function Container({ children, padding = "px-[50px]", className = "" }) {
+export function Container({ children, padding = "px-[30px] md:px-[50px]", className = "" }) {
   return <div className={`${padding} ${className}`}>{children}</div>;
 }
 

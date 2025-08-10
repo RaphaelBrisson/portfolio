@@ -4,16 +4,16 @@ import { Container, Wrapper } from "./Layout";
 
 const Tech = () => {
   const technologies = [
-    'JavaScript', 'React', 'Next.js', 'TypeScript', 'PHP', 'Laravel',
-    'Node.js', 'MySQL', 'PhpMyAdmin', 'Tailwind CSS','WordPress',
-    'Git', 'Github/Gitlab','HTML', 'CSS/SCSS', 'Adobe XD', 'Figma', 'Adobe Illustrator', 'Adobe Photoshop'
+    'JS', 'React', 'Next.js', 'TypeScript', 'WordPress', 'PHP', 'Laravel',
+    'Node.js', 'MySQL', 'PhpMyAdmin', 'Tailwind',
+    'Git', 'Github/Gitlab', 'Docker', 'HTML', 'CSS/SCSS', 'Adobe XD/Figma', 'Adobe Illustrator', 'Adobe Photoshop'
   ];
 
   return (
-    <section id="tech" className="bg-black text-white py-[150px]">
+    <section id="tech" className="bg-black text-white py-[90px] md:py-[150px]">
       <Container className="">
         <Wrapper className="">
-          <h2 className="text-[3rem] font-bold mb-20 text-center">Technologies</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-20 text-center">Technologies</h2>
           <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 text-lg">
             {technologies.map((tech) => (
               <li key={tech} className="flex items-center">

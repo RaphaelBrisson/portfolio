@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Container } from "./Layout";
 import logo from '../assets/logo.svg';
 import MenuIcon from './navbar/MenuIcon';
@@ -10,15 +10,39 @@ const Navbar = ({ theme }) => {
   const menuRef = useRef(null);
   const menuIconRef = useRef(null);
 
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlNavbar = () => {
+    if (typeof window !== 'undefined') {
+      if (window.scrollY > 100 && window.scrollY > lastScrollY) {
+        setShow(false);
+      } else {
+        setShow(true);
+      }
+      setLastScrollY(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar);
+
+      return () => {
+        window.removeEventListener('scroll', controlNavbar);
+      };
+    }
+  }, [lastScrollY]);
+
   const closeMenu = () => setIsMenuOpen(false);
 
   useOnClickOutside(menuRef, closeMenu, menuIconRef);
 
   return (
     <>
-    <Container className="fixed flex items-center justify-between w-full z-[100] mt-[25px] mix-blend-difference">
-      <a href="#header">
-        <img src={logo} alt="logo RB" className="w-[45px]" />
+    <Container className={`fixed flex items-center justify-between w-full z-[100] mt-[25px] mix-blend-difference transition-transform duration-300 ease-in-out ${show ? 'translate-y-0' : '-translate-y-[150%]'}`}>
+      <a href="#header" className="group w-[45px] h-[30px]">
+        <img src={logo} alt="logo RB" className="w-[45px] transition-transform duration-200 group-hover:scale-x-[-1]" />
       </a>
       <div ref={menuIconRef}>
         <MenuIcon 
@@ -28,8 +52,8 @@ const Navbar = ({ theme }) => {
           setIsOpen={setIsMenuOpen} 
         />
       </div>
-      <div className='w-[45px]'></div>
-      
+      <div className='w-[45px] max-md:hidden'></div>
+
     </Container>
     <AnimatePresence>
         {isMenuOpen && (

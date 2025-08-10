@@ -68,7 +68,7 @@ function BurgerLines() {
         animate={{ scaleX: 1 }}
         exit={{ scaleX: 0 }}
         transformOrigin="left center"
-        transition={{ duration: 0.3, delay: 0.1 }}
+        transition={{ duration: 0.25, delay: 0.1 }}
       />
     </motion.g>
   );

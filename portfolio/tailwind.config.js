@@ -11,12 +11,14 @@ export default {
       accent: '#c24f1aff',
     },
     fontSize: {
-      sm: '0.625rem',
+      xs: '0.625rem',
+      sm: '0.75rem',
       base: '1rem',
-      xl: '1rem',
+      xl: '1.5rem',
       '2xl': '2rem',
-      '3xl': '4rem',
-      '4xl': '8rem',
+      '3xl': '2.5rem',
+      '4xl': '3rem',
+      '5xl': '4rem',
     },
     extend: {
     },

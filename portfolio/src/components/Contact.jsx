@@ -21,10 +21,10 @@ const Contact = () => {
     }, []);
 
     return (
-        <section id="contact" className="pt-[150px] bg-white">
+        <section id="contact" className="pt-[90px] md:pt-[150px]bg-white">
             <Container>
                 <Wrapper className="text-center">
-                    <h2 className="text-[3rem] font-bold mb-20">Me contacter</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold mb-20">Me contacter</h2>
                     <div className="flex flex-col gap-4">
                         {phone && (
                             <p>
@@ -43,7 +43,7 @@ const Contact = () => {
                     </div>
                 </Wrapper>
             </Container>
-            <hr className="my-20 w-[80px] mx-auto border-accent border-t-2" />
+            <hr />
 
         </section>
     );

@@ -21,6 +21,14 @@ html {
   scroll-behavior: smooth;
 }
 
+b {
+  font-weight: 600;
+}
+
+hr {
+  @apply my-20 w-[80px] mx-auto border-accent border-t-2 opacity-75;
+}
+
 @layer components {
   .list-item-large {
     @apply relative flex justify-between items-center;
